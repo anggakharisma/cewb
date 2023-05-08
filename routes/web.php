@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Resources\ProductResource;
 use App\Models\Product;
@@ -28,6 +29,9 @@ Route::get('/', function () {
 				'products' => Cache::get('products'),
     ]);
 });
+
+
+Route::get('/products/{product}', [ProductController::class, 'show']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

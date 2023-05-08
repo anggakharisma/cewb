@@ -3,10 +3,8 @@ import Nav from '@/Components/Nav.vue';
 </script>
 
 <template>
-    <div class="dark:bg-gray-900">
-			<Nav />
-        <div>
-            <slot />
-        </div>
-    </div>
+	<div class="dark:bg-gray-900">
+		<Nav />
+		<slot />
+	</div>
 </template>

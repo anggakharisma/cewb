@@ -2,15 +2,11 @@
 import Banner from '@/Components/Banner.vue';
 import ProductCard from '@/Components/ProductCard.vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
-import { Head, Link } from '@inertiajs/vue3';
+import { Head } from '@inertiajs/vue3';
 import { shuffleArray } from '@/libs/array';
 import { computed } from 'vue';
+import { Product } from '@/types';
 
-type Product = {
-	name: string;
-	price: number;
-	image_path: string;
-}
 const props = defineProps<{
 	canLogin?: boolean;
 	canRegister?: boolean;
