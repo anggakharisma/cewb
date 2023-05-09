@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Resources\ProductResource;
+use App\Http\Controllers\CartController;
 use App\Models\Product;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +32,7 @@ Route::get('/', function () {
 
 
 Route::get('/products/{product}', [ProductController::class, 'show']);
+Route::get('cart', [CartController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
