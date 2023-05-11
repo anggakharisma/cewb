@@ -13,8 +13,6 @@ const state = reactive<{ searchQuery: string }>({
 const onSearchChange = (searchQuery: string) => {
 	searchQuery = searchQuery;
 }
-
-
 </script>
 
 <template>
@@ -35,7 +33,12 @@ const onSearchChange = (searchQuery: string) => {
 			<img class="cursor-pointer" :src="CartIcon" alt="see cart item" />
 			</Link>
 			<img class="cursor-pointer" :src="MessageIcon" alt="see cart item" />
+			<Link v-if="$page.props.auth.user" href="/dashboard">
 			<img class="cursor-pointer" :src="UserIcon" alt="see cart item" />
+			</Link>
+			<Link v-else href="/login">
+			<img class="cursor-pointer" :src="UserIcon" alt="see cart item" />
+			</Link>
 		</div>
 	</div>
 </template>

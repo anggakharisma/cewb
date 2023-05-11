@@ -5,8 +5,12 @@ import { createApp, h, DefineComponent } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
+import { createPinia } from 'pinia'
 
-const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'MPLACE';
+const pinia = createPinia()
+
+
+const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'CEWB';
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
@@ -15,7 +19,10 @@ createInertiaApp({
         createApp({ render: () => h(App, props) })
             .use(plugin)
             .use(ZiggyVue, Ziggy)
+						.use(pinia)
             .mount(el);
     },
-    progress: false
+    progress: {
+        color: '#4B5563',
+    },
 });

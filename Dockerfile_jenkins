@@ -1,0 +1,22 @@
+# Base image
+FROM php:8.1-cli-alpine
+
+# Install Docker dependencies
+RUN apk update && apk add --no-cache \
+    docker \
+    curl \
+    git \
+    npm \
+    vim \
+    zip
+
+# Install Node.js and npm
+RUN apk add --no-cache nodejs
+
+# Install yarn
+RUN npm install -g yarn
+
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+
+WORKDIR /app

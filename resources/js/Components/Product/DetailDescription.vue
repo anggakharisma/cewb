@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Product } from '@/types';
 import Button from '../Button.vue';
-import { ButtonSize, ButtonType, Variant } from '@/enums/ButtonEnums';
+import { ButtonSize, ButtonType, Variant } from '@/Enums/ButtonEnums';
 
 defineProps<{
 	product: Product
