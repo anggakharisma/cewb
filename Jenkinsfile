@@ -1,9 +1,8 @@
 pipeline {
     agent {
         node {
-			label 'docker-agent-phpnode'
+			label 'docker-agent-alpine'
 		}
-
 	}
     stages {
         stage('Build') {
