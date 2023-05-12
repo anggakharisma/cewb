@@ -13,6 +13,7 @@ RUN apk update && apk add --no-cache \
 RUN apk add --update nodejs npm
 
 RUN npm i -g yarn
+RUN mkdir /home/jenkins
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
