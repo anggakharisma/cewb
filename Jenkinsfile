@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-			label 'docker-agent-php-node'
+			label 'docker-agent-alpine'
 		}
 
 	}
