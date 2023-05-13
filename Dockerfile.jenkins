@@ -6,7 +6,7 @@ USER root
 
 # Install PHP 8.1
 RUN apt update && apt upgrade -y
-RUN apt install apt-transport-https lsb-release ca-certificates wget vim git -y
+RUN apt install apt-transport-https lsb-release ca-certificates wget vim git unzip zip -y
 RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg 
 RUN sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
 RUN apt update && apt upgrade -y

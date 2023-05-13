@@ -5,14 +5,21 @@ pipeline {
 		}
 	}
     stages {
-        stage('prepare') {
+        stage('composer install') {
             steps {
 				sh '''
 					composer install
-					yarn && yarn build
 				'''
             }
         }
+		stage("build assets") { 
+			steps {
+				sh '''
+					yarn && yarn build
+				'''
+			}
+		}
+
         stage('Test') {
             steps {
 				sh '''
