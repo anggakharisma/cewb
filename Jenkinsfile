@@ -7,13 +7,17 @@ pipeline {
     stages {
         stage('prepare') {
             steps {
-				"composer install"
-				"yarn && yarn build"
+				sh '''
+					composer install
+					yarn && yarn build
+				'''
             }
         }
         stage('Test') {
             steps {
-				"php artisan test"
+				sh '''
+					php artisan test
+				'''
             }
         }
         stage('Deliver') {
