@@ -1,6 +1,5 @@
 {
 	"compilerOptions": {
-		"baseUrl": "resources/js",
 		"allowJs": true,
 		"module": "ESNext",
 		"moduleResolution": "bundler",
