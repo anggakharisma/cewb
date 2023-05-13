@@ -19,6 +19,8 @@
 	},
 	"include": [
 		"resources/js/**/*.ts",
+		"resource/js/Enums/*.ts",
+		"resource/js/Libs/*.ts",
 		"resources/js/**/*.d.ts",
 		"resources/js/**/*.vue"
 	]
