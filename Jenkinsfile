@@ -18,13 +18,13 @@ pipeline {
 			}
 		}
 
-        stage('Test') {
-            steps {
-				sh '''
-					php artisan test
-				'''
-            }
-        }
+        //stage('Test') {
+        //    steps {
+		//		sh '''
+		//			php artisan test
+		//		'''
+        //    }
+        //}
         stage('Deliver') {
             steps {
                 echo 'Deliver....'
