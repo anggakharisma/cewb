@@ -14,6 +14,7 @@ pipeline {
         }
 		stage("build assets") { 
 			steps {
+				sh 'ls -la'
 				sh '''
 					CI=true yarn install 
 					CI=true yarn build 
