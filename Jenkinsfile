@@ -15,8 +15,8 @@ pipeline {
 		stage("build assets") { 
 			steps {
 				sh '''
-					CI=true yarn install 
-					npx vue-tsc
+					CI=true npm install
+					CI=true npm run build
 				'''
 			}
 		}
