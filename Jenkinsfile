@@ -7,14 +7,14 @@ pipeline {
     stages {
         stage('composer install') {
             steps {
-				sh '''
+				bash '''
 					composer install
 				'''
             }
         }
 		stage("build assets") { 
 			steps {
-				sh '''
+				bash '''
 					CI=true yarn install 
 					CI=true yarn build 
 				'''
