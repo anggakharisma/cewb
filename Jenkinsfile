@@ -15,7 +15,7 @@ pipeline {
 		stage("build assets") { 
 			steps {
 				sh '''
-					yarn && yarn build
+					CI=true yarn && yarn build
 				'''
 			}
 		}
