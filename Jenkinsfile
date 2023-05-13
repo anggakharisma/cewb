@@ -14,16 +14,10 @@ pipeline {
         }
 		stage("build assets") { 
 			steps {
-				sh 'CI=true yarn install '
+				sh 'CI=true yarn install'
+				sh 'ls -la'
 			}
 		}
-
-        //stage('Test') {
-        //    steps {
-		//		sh '''
-		//			php artisan test
-		//		'''
-        //    }
         //}
         stage('Deliver') {
             steps {
