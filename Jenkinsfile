@@ -16,7 +16,7 @@ pipeline {
 			steps {
 				sh '''
 					CI=true yarn install 
-					CI=true yarn build 
+					npx vue-tsc
 				'''
 			}
 		}
