@@ -15,8 +15,8 @@ pipeline {
 		stage("build assets") { 
 			steps {
 				sh '''
-					CI=true npm install
-					CI=true npm run build
+					CI=true yarn install 
+					CI=true yarn build 
 				'''
 			}
 		}

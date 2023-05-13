@@ -6,13 +6,13 @@ import path from 'path';
 export default defineConfig({
 	resolve: {
 		alias: {
-			'@': path.resolve(__dirname, 'resources/js'),
+			'@': path.resolve(__dirname, './resources/js'),
 		}
 	},
 	plugins: [
 		laravel({
-			input: 'resources/js/app.ts',
-			ssr: 'resources/js/ssr.ts',
+			input: './resources/js/app.ts',
+			ssr: './resources/js/ssr.ts',
 			refresh: true,
 		}),
 		vue({
