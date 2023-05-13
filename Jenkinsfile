@@ -14,10 +14,7 @@ pipeline {
         }
 		stage("build assets") { 
 			steps {
-				bash '''
-					CI=true yarn install 
-					CI=true yarn build 
-				'''
+				sh 'CI=true yarn install '
 			}
 		}
 
