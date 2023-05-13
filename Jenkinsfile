@@ -7,18 +7,27 @@ pipeline {
     stages {
         stage('composer install') {
             steps {
-				bash '''
+				sh '''
 					composer install
 				'''
             }
         }
 		stage("build assets") { 
 			steps {
-				sh 'CI=true yarn install'
-				sh 'ls -la'
+				sh '''
+					CI=true yarn install 
+					CI=true yarn build 
+				'''
 			}
 		}
-        //}
+
+        stage('Test') {
+            steps {
+				sh '''
+					php artisan test
+				'''
+            }
+        }
         stage('Deliver') {
             steps {
                 echo 'Deliver....'
