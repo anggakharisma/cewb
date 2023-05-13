@@ -1,19 +1,23 @@
 # Base image
-FROM php:8.1-cli-alpine
+FROM jenkins/agent:latest
 
-# Install system dependencies
-RUN apk update && apk add --no-cache \
-    git \
-    npm \
-    vim \
-    zip \
-	bash
+# Install dependencies
+USER root
 
-# Install Node.js
-RUN apk add --update nodejs npm
+# Install PHP 8.1
+RUN apt update && apt upgrade -y
+RUN apt install apt-transport-https lsb-release ca-certificates wget vim git -y
+RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg 
+RUN sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
+RUN apt update && apt upgrade -y
+RUN apt install curl php8.1-cli php8.1-curl php8.1-mbstring php8.1-phar php8.1-sqlite3 php8.1-zip php8.1-tokenizer php8.1-dom php8.1-fileinfo php8.1-xml php8.1-pgsql php8.1-simplexml php8.1-xmlwriter php8.1-redis -y 
 
-RUN npm i -g yarn
-RUN mkdir /home/jenkins
+## Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+
+#Install Nodejs
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
+RUN apt update && apt upgrade -y
+RUN apt install nodejs
+RUN npm install -g yarn

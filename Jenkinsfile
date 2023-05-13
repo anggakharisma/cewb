@@ -5,20 +5,15 @@ pipeline {
 		}
 	}
     stages {
-        stage('Build') {
+        stage('prepare') {
             steps {
-                echo "Building.."
-                sh '''
-                echo "doing build stuff.."
-                '''
+				composer install 
+				yarn && yarn build
             }
         }
         stage('Test') {
             steps {
-                echo "Testing.."
-                sh '''
-                echo "doing test stuff.."
-                '''
+				php artisan test
             }
         }
         stage('Deliver') {
