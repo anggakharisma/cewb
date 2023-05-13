@@ -1,7 +1,7 @@
 pipeline {
     agent {
         node {
-			label 'docker-agent-test2'
+			label 'docker-agent-phpnode'
 		}
 	}
     stages {
