@@ -8,7 +8,7 @@ pipeline {
         stage('composer install') {
             steps {
 				sh '''
-					composer install
+					composer install --optimize-autoloader --no-dev
 				'''
             }
         }
