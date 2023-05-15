@@ -43,5 +43,13 @@ pipeline {
 				'''
             }
         }
+
+		stage("build docker image") {
+			 steps {
+                script {
+                    docker.build('cewb_build', '-f Dockerfile .')
+                }
+            }
+		}
     }
 }
