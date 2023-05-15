@@ -4,11 +4,6 @@ pipeline {
 		APP_KEY = credentials("APP_KEY")
 	}
     stages {
-		agent {
-			docker {
-				image 'anggakharisma/jenkins_docker'
-			}
-		}
         stage('composer install') {
 			agent {
 				docker {
@@ -28,6 +23,7 @@ pipeline {
 				}
 			}
 			steps {
+				sh 'ls -la'
 				sh '''
 					CI=true yarn install 
 					CI=true yarn build 
@@ -40,14 +36,6 @@ pipeline {
 				sh '''
 					php artisan test
 				'''
-            }
-        }
-
-		stage('Build image') {
-            steps {
-                script {
-                    docker.build('cewb_build', '-f Dockerfile .')
-                }
             }
         }
     }
