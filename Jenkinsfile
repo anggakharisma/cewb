@@ -32,6 +32,11 @@ pipeline {
 		}
 
         stage('Test') {
+			agent {
+				docker {
+					image 'anggakharisma/jenkins_docker'
+				}
+			}
             steps {
 				sh '''
 					php artisan test
