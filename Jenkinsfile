@@ -4,7 +4,7 @@ pipeline {
 			image 'anggakharisma/jenkins_docker'
 		}
 	}
-	environments {
+	environment {
 		APP_KEY = credentials("APP_KEY")
 	}
     stages {
@@ -32,11 +32,10 @@ pipeline {
 				'''
             }
         }
-        stage('Deliver') {
+        stage('Build image') {
             steps {
-                echo 'Deliver....'
                 sh '''
-                echo "doing delivery stuff.."
+					docker build -t cewb_build .
                 '''
             }
         }
