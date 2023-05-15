@@ -1,7 +1,7 @@
 pipeline {
     agent {
-        node {
-			label 'docker-agent-phpnode'
+        docker {
+			image 'anggakharisma/jenkins_docker'
 		}
 	}
     stages {
