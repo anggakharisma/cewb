@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+    cewb-app:
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        image: cewb-app
+        container_name: cewb-app
+        restart: unless-stopped
+        networks:
+            - cewbs-network
+        volumes:
+            - ./:/var/www/html
+
+    cewb-nginx:
+        image: nginx:latest
+        container_name: cewb-nginx
+        restart: unless-stopped
+        networks:
+            - cewbs-network
+        ports:
+            - 9898:80
+        volumes:
+            - ./:/var/www/html
+        depends_on:
+            - cewb-app
+
+networks:
+    cewbs-network:
+        driver: bridge

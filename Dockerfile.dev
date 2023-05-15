@@ -1,0 +1,23 @@
+# Base image
+FROM jenkins/agent:latest
+
+# Install dependencies
+USER root
+
+# Install PHP 8.1
+RUN apt update && apt upgrade -y
+RUN apt install apt-transport-https lsb-release ca-certificates wget vim git unzip zip -y
+RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+RUN sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list'
+RUN apt update && apt upgrade -y
+RUN apt install curl php8.1-cli php8.1-curl php8.1-mbstring php8.1-phar php8.1-sqlite3 php8.1-zip php8.1-tokenizer php8.1-dom php8.1-fileinfo php8.1-xml php8.1-pgsql php8.1-simplexml php8.1-xmlwriter php8.1-redis -y
+
+## Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+
+#Install Nodejs
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
+RUN apt update && apt upgrade -y
+RUN apt install nodejs
+RUN npm install -g yarn
