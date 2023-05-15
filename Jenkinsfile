@@ -33,6 +33,7 @@ pipeline {
             }
         }
         stage('Build image') {
+			agent any
             steps {
 				script {
 					docker.build('cewb_build', '-f Dockerfile .')
