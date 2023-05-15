@@ -19,5 +19,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Install Node.js 18 and Yarn
 RUN apk add --no-cache nodejs npm yarn
 
+# Set ownership and permissions
 WORKDIR /var/www
+RUN chown -R www-data:www-data /var/www
+
 COPY composer.json ./
