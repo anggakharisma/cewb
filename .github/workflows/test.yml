@@ -1,4 +1,4 @@
-name: Test and package apps
+name: Laravel CI
 
 on:
   push:
@@ -9,27 +9,44 @@ on:
       - main
 
 jobs:
-  test:
-    runs-on: anggakharisma/jenkins_docker
+  build_and_test:
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: composer install --no-interaction
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
 
-      - name: Generate env file
-        run: cp .env.example .env
+      - name: Install composer dependencies
+        run: composer install --no-interaction --no-progress --no-scripts --no-suggest
 
-      - name: Generate app key
-        run: php artisan key:generate
+      - name: Install Node.js and yarn
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install yarn dependencies
+        run: yarn install --frozen-lockfile
 
       - name: Build assets
-        run: yarn && yarn build
+        run: yarn build
+
+      - name: Generate environment file
+        run: cp .env.example .env
+
+      - name: Generate application key
+        run: php artisan key:generate
 
       - name: Run tests
-        run: php artisan test
+        run: vendor/bin/phpunit
 
-
-      
+      - name: Build Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: false
+          tags: your-dockerhub-username/your-image-name:latest
