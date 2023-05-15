@@ -4,6 +4,9 @@ pipeline {
 			image 'anggakharisma/jenkins_docker'
 		}
 	}
+	environments {
+		APP_KEY = credentials("APP_KEY")
+	}
     stages {
         stage('composer install') {
             steps {
