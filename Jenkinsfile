@@ -4,7 +4,7 @@ pipeline {
 			image 'anggakharisma/jenkins_docker'
 		}
 	}
-	environments {
+	environment {
 		APP_KEY = credentials("APP_KEY")
 	}
     stages {
