@@ -34,9 +34,9 @@ pipeline {
         }
         stage('Build image') {
             steps {
-                sh '''
-					docker build -t cewb_build .
-                '''
+				script {
+					docker.build('cewb_build', '-f Dockerfile .')
+				}
             }
         }
     }
