@@ -3,7 +3,7 @@ import Banner from '@/Components/Banner.vue';
 import ProductCard from '@/Components/ProductCard.vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import { Head } from '@inertiajs/vue3';
-import { shuffleArray } from '@/Libs/array';
+import { shuffleArray } from '@/libs/array';
 import { computed } from 'vue';
 import { Product } from '@/types';
 

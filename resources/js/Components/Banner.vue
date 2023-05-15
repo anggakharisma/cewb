@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ButtonSize, ButtonType, Variant } from '@/Enums/ButtonEnums'
+import { ButtonSize, ButtonType, Variant } from '@/enums/ButtonEnums'
 import Button from './Button.vue';
 </script>
 
