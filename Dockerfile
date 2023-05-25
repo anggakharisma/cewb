@@ -28,6 +28,9 @@ RUN docker-php-ext-install \
     && pecl install redis \
     && docker-php-ext-enable redis
 
+ Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
 # Copy the Nginx configuration file
 COPY docker_config/nginx.conf /etc/nginx/http.d/default.conf
 
