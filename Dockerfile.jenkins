@@ -15,7 +15,6 @@ RUN apt install curl php8.1-cli php8.1-curl php8.1-mbstring php8.1-phar php8.1-s
 ## Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-
 #Install Nodejs
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
 RUN apt update && apt upgrade -y

@@ -21,3 +21,4 @@ WORKDIR /var/www
 COPY --chown=1000:www-data . /var/www
 # Set up permissions
 RUN chown -R 1000:www-data /var/www
+RUN chmod 775 /var/www/storage/

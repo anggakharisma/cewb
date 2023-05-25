@@ -1,4 +1,6 @@
-# Start from the official PHP-FPM 8.1 image with Alpine base
+###
+# For production use
+###
 FROM php:8.1-fpm-alpine
 
 # Set working directory
@@ -28,7 +30,7 @@ RUN docker-php-ext-install \
     && pecl install redis \
     && docker-php-ext-enable redis
 
- Install Composer
+# Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Copy the Nginx configuration file
