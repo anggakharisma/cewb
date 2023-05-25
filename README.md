@@ -22,7 +22,7 @@
 	💻 access it on localhost:9898
 
 - 🙎 Jenkins configuration included
-- 👷‍ How Buiild image & deploy for ️production
+- 👷‍ How to buiild image & deploy for ️production
 		
 		docker build -t cewb_production -f Dockerfile
 		docker run -d --name cewb_production -p <your-port>:80
