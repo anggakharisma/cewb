@@ -5,6 +5,9 @@ services:
         extra_hosts:
           - host.docker.internal:host-gateway
         build:
+          args:
+            user: cewb
+            uid: ${USERID}
           context: .
           dockerfile: Dockerfile.dev
         image: cewb-dev
