@@ -12,7 +12,7 @@ defineProps<{
 		<img class="object-cover w-full h-full max-h-96" :src="product.image_path" :alt="product.name" />
 
 		<div class="absolute bottom-0 flex justify-between w-full p-2 bg-white bg-opacity-70">
-			<p class="text-sm">{{ product.price }}</p>
+			<p class="text-sm">$ {{ product.price }}</p>
 			<p class="text-sm">{{ product.name.substring(0, 10) }}</p>
 		</div>
 		</Link>

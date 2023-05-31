@@ -9,7 +9,9 @@ RUN set -ex \
 	&& apk --no-cache add \
 	postgresql-dev oniguruma-dev libpng-dev
 RUN docker-php-ext-install pdo_pgsql exif pcntl bcmath gd opcache
-RUN apk add --no-cache $PHPIZE_DEPS
+RUN apk add --no-cache $PHPIZE_DEPS \
+    && pecl install redis \
+    && docker-php-ext-enable redis
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 

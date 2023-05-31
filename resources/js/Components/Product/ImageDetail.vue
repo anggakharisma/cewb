@@ -7,7 +7,7 @@ defineProps<{
 }>();
 </script>
 <template>
-	<div>
-		<img :src="src" :alt="description" />
+	<div class="inline-block overflow-hidden">
+		<img class="inline-block overflow-hidden transition-all hover:scale-125" :src="src" :alt="description" />
 	</div>
 </template>
