@@ -20,13 +20,12 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-	$products = Cache::add('products', Product::all(), now()->addMinutes(5));
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
-		'products' => Cache::get('products'),
+				'products' => Product::all()
     ]);
 });
 

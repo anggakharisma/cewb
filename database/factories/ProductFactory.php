@@ -16,10 +16,18 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
+			 	$path = '/storage/images/placeholder/';
+				$images = [
+					'placeholder01.jpg',
+					'placeholder02.jpg',
+					'placeholder03.jpg',
+					'placeholder04.jpg',
+					'placeholder05.jpg',
+				];
         return [
 					'name' => fake()->name(),
 					'price' => fake()->numberBetween(100, 2000),
-					'image_path' => fake()->imageUrl(640, 480, 'animals')
+					'image_path' => $path . "/" . $images[array_rand($images)]
         ];
     }
 }

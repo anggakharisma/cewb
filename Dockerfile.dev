@@ -4,7 +4,7 @@ ARG user
 ARG uid
 
 RUN apk update && apk upgrade --available && sync
-RUN apk add --update linux-headers vim
+RUN apk add --update linux-headers vim nodejs yarn npm
 RUN set -ex \
 	&& apk --no-cache add \
 	postgresql-dev oniguruma-dev libpng-dev
