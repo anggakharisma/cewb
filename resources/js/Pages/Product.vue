@@ -11,7 +11,7 @@ defineProps<{
 </script>
 <template>
 	<GuestLayout>
-		<div class="flex items-stretch w-5/6 gap-20 pr-16 m-auto bg-white">
+		<div class="flex items-stretch w-5/6 gap-20 pr-16 m-auto mb-40 bg-white">
 			<ImageDetail :src="product.image_path" :description="product.name" />
 			<DetailDescription :product="product" />
 		</div>
