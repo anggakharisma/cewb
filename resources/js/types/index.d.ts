@@ -12,8 +12,14 @@ export interface Product {
 	image_path: string;
 }
 
+export interface CartItem {
+	name: string;
+	quantity: number;
+}
+
 export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
 	auth: {
 		user: User;
 	};
 };
+

@@ -10,7 +10,7 @@ class CartController extends Controller
     public function index()
 		{
 			return Inertia::render('Cart', [
-				'cart', request()->session('cart')
+				'cart' => \Cart::getContent()
 			]);
 		}
 }

@@ -16,14 +16,13 @@ const formProduct = reactive({
 
 const addToCart = async (product: Product) => {
 	store.cart.push(product);
-	console.log(store.cart);
 	router.post("/cart", formProduct);
 }
 
 </script>
 
 <template>
-	<div class="flex flex-col justify-between w-full my-32">
+	<div class="flex flex-col w-full">
 		<div>
 			<h2 class="text-4xl font-semibold">{{ product.name }}</h2>
 			<p class="text-lg font-light">$ {{ product.price }}</p>
@@ -33,7 +32,7 @@ const addToCart = async (product: Product) => {
 				veniam eaque modi voluptates!</p>
 		</div>
 
-		<div class="self-start">
+		<div class="self-start mt-16">
 			<Button :size="ButtonSize.MEDIUM" type="submit" :variant="Variant.PRIMARY" @click="addToCart(product)">
 				Add To Cart
 			</Button>

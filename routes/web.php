@@ -26,12 +26,17 @@ Route::post("/cart", function () {
 	return redirect()->back();
 });
 
-Route::get("/testing2", function () {
-});
-
 Route::get('/dashboard', function () {
 	return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::post('/cart', function() {
+	$cartItem = request()->all();
+	$cartItem['product']['quantity'] = 1;
+	\Cart::add($cartItem);
+
+	return redirect()->back();
+});
 
 Route::middleware('auth')->group(function () {
 	Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
