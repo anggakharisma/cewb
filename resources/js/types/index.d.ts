@@ -12,7 +12,7 @@ export interface Product {
 	image_path: string;
 }
 
-export interface CartItem {
+export interface CartItemType {
 	name: string;
 	quantity: number;
 }

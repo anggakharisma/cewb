@@ -10,7 +10,7 @@ class CartController extends Controller
     public function index()
 		{
 			return Inertia::render('Cart', [
-				'cart' => \Cart::getContent()
+				'cartItems' => \Cart::getContent()
 			]);
 		}
 }

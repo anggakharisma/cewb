@@ -1,9 +1,10 @@
 <script setup lang="ts">
 
-import { CartItem } from '@/types';
-defineProps<{
-	cartItem: CartItem
+import { CartItemType } from '@/types';
+const props = defineProps<{
+	cartItem: CartItemType
 }>();
+
 </script>
 <template>
 	<div class="flex w-full">
