@@ -18,7 +18,7 @@ services:
         volumes:
             - ./:/var/www
         ports:
-          - 5173:5173
+            - "4242-4343:4242-4343"
     cewb-redis:
       image: redis:alpine
       container_name: cewb-redis
