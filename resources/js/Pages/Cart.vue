@@ -10,4 +10,5 @@ import GuestLayout from '@/Layouts/GuestLayout.vue';
 			<h2 class="mb-8 text-3xl font-semibold">Shopping Cart</h2>
 			<CartItem />
 		</div>
-	</GuestLayout></template>
+	</GuestLayout>
+</template>

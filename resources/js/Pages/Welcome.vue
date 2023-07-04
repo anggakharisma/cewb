@@ -29,7 +29,7 @@ const shuffledProducts = computed(() => {
 
 		<div class="w-5/6 m-auto mt-4">
 			<h1 class="my-8 text-xl font-semibold text-gray-800">ON SALE <span class="text-green-500">%</span></h1>
-			<div class="flex justify-between w-full">
+			<div class="flex justify-between w-full gap-4">
 				<ProductCard :is-big="false" v-for="product in products.slice(0, 5)" :product="product" />
 			</div>
 			<div class="w-full my-8">
@@ -40,7 +40,7 @@ const shuffledProducts = computed(() => {
 						<img class="object-cover w-full h-full" :src="products[3].image_path" :alt="products[3].name" />
 
 						<div class="absolute bottom-0 flex justify-between w-full p-2 bg-white bg-opacity-70">
-							<p class="text-sm">{{ products[3].price }}</p>
+							<p class="text-sm">$ {{ products[3].price }}</p>
 							<p class="text-sm">{{ products[3].name.substring(0, 10) }}</p>
 						</div>
 						</Link>

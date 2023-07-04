@@ -20,6 +20,7 @@ RUN apk --no-cache add --virtual .build-deps \
     zlib-dev
 
 RUN apk --no-cache add nginx vim postgresql-dev
+RUN apk add --update linux-headers vim nodejs yarn npm
 
 # Install necessary PHP extensions
 RUN docker-php-ext-install \
@@ -45,6 +46,7 @@ RUN chown -R www-data:www-data /var/www/html \
 
 # Expose port 80
 EXPOSE 80
+RUN yarn build
 
 # Start Nginx and PHP-FPM
 CMD nginx && php-fpm
