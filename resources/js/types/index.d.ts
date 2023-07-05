@@ -23,3 +23,9 @@ export type PageProps<T extends Record<string, unknown> = Record<string, unknown
 	};
 };
 
+
+interface GlobalProps extends PageProps {
+	flash: {
+		message: string | null
+	}
+}

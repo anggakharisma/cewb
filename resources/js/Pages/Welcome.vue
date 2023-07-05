@@ -35,7 +35,7 @@ const shuffledProducts = computed(() => {
 			<div class="w-full my-8">
 				<h1 class="my-8 text-xl font-semibold text-gray-700">FEATURED PRODUCTS</h1>
 				<div class="grid grid-cols-2 gap-8 align-middle">
-					<div class="relative h-[40vw]">
+					<div class="relative h-[76vh]">
 						<Link :href="`/products/${products[3].id}`">
 						<img class="object-cover w-full h-full" :src="products[3].image_path" :alt="products[3].name" />
 

@@ -6,7 +6,6 @@ import { ButtonSize, ButtonType, Variant } from '../enums/ButtonEnums';
 interface ButtonProps extends /* @vue-ignore */ ButtonHTMLAttributes {
 	size?: ButtonSize,
 	variant: Variant,
-
 }
 
 defineProps<ButtonProps>();

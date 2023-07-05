@@ -3,7 +3,7 @@ import CartItem from '@/Components/CartItem/CartItem.vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import { CartItemType } from '@/types';
 
-const props = defineProps<{
+defineProps<{
 	cartItems: CartItemType[]
 }>();
 </script>
