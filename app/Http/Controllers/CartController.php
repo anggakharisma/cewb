@@ -17,7 +17,7 @@ class CartController extends Controller
 	public function addItemToCart()
 	{
 		$cartItem = request()->all();
-		$cartItem['product']['quantity'] = 1;
+		$cartItem['quantity'] = 1;
 		\Cart::add($cartItem);
 
 		return redirect()->back()->with("message", "Item added to cart");

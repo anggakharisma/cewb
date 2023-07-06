@@ -19,7 +19,8 @@ defineProps<ButtonProps>();
 		'bg-blue-800 hover:bg-blue-900': variant === Variant.PRIMARY,
 		'bg-yellow-800 hover:bg-yellow-600': variant === Variant.WARNING,
 		'bg-red-800': variant === Variant.DANGER,
-	}" class="px-6 py-3 mt-3 font-semibold text-white transition-all rounded-3xl hover:scale-110 hover:drop-shadow-md">
+	}"
+		class="px-6 py-3 mt-3 font-semibold text-white transition-all disabled:font-medium rounded-3xl hover:scale-110 hover:drop-shadow-md disabled:bg-gray-400">
 		<slot />
 	</button>
 </template>

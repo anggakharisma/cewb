@@ -5,6 +5,7 @@ import { reactive } from 'vue';
 import CartIcon from '../../assets/icons/Shopping cart.svg';
 import MessageIcon from '../../assets/icons/InboxOutline.svg';
 import UserIcon from '../../assets/icons/UserOutline.svg';
+import { store } from "@/store";
 
 const state = reactive<{ searchQuery: string }>({
 	searchQuery: ''
@@ -30,7 +31,10 @@ const onSearchChange = (searchQuery: string) => {
 
 		<div class="flex items-center gap-6 align-middle">
 			<Link href="/cart">
-			<img class="cursor-pointer" :src="CartIcon" alt="see cart item" />
+			<div class="relative">
+				<p class="absolute p-1 text-xs bg-yellow-300 rounded-full -top-3 -right-2">{{  store.cart.length }}</p>
+				<img class="cursor-pointer" :src="CartIcon" alt="see cart item" />
+			</div>
 			</Link>
 			<img class="cursor-pointer" :src="MessageIcon" alt="see cart item" />
 			<Link v-if="$page.props.auth.user" href="/dashboard">

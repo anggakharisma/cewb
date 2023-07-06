@@ -1,12 +1,19 @@
 <script setup lang="ts">
-import { CheckIcon } from '@heroicons/vue/24/solid'
+import { CheckIcon } from "@heroicons/vue/24/solid";
+import { ref } from "vue";
+
 defineProps({
-	message: String
-})
+	message: String,
+});
+
+const showAlert = ref(true);
+setTimeout(() => {
+	showAlert.value = false;
+}, 2000);
+
 </script>
 <template>
-	<div
-		class="fixed flex p-8 px-4 py-2 font-normal text-green-700 -translate-x-1/2 bg-green-200 rounded-md text-md top-10 left-1/2">
+	<div v-if="showAlert" @click="showAlert = !showAlert" class="flex p-4 my-4 font-medium rounded-md text-emerald-100 bg-emerald-600 text-md">
 		<CheckIcon class="w-6 h-6 mr-4" />
 		<p>{{ message }}</p>
 		<slot />

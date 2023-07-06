@@ -1,23 +1,13 @@
 <script setup lang="ts">
+import { ButtonSize, Variant } from '@/enums/ButtonEnums';
 import { Product } from '@/types';
 import Button from '../Button.vue';
-import { store } from '@/store';
-import { ButtonSize, ButtonType, Variant } from '@/enums/ButtonEnums';
-import { router } from '@inertiajs/vue3';
-import { reactive } from 'vue';
 
-const props = defineProps<{
+defineProps<{
 	product: Product
+	addToCart: any
+	isAdding: Boolean
 }>();
-
-const formProduct = reactive({
-  product: props.product
-})
-
-const addToCart = async (product: Product) => {
-	store.cart.push(product);
-	router.post("/cart", formProduct);
-}
 
 </script>
 
@@ -33,7 +23,8 @@ const addToCart = async (product: Product) => {
 		</div>
 
 		<div class="self-start mt-16">
-			<Button :size="ButtonSize.MEDIUM" type="submit" :variant="Variant.PRIMARY" @click="addToCart(product)">
+			<Button :disabled="isAdding" :size="ButtonSize.MEDIUM" type="submit" :variant="Variant.PRIMARY"
+				@click="addToCart(product)">
 				Add To Cart
 			</Button>
 		</div>
