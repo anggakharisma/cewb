@@ -9,13 +9,13 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-	$products = Cache::add('products', Product::all(), now()->addMinutes(5));
+	Cache::add('products', Product::all(), now()->addMinutes(5));
 	return Inertia::render('Welcome', [
 		'canLogin' => Route::has('login'),
 		'canRegister' => Route::has('register'),
 		'laravelVersion' => Application::VERSION,
 		'phpVersion' => PHP_VERSION,
-		'products' => Product::all()
+		'products' => Cache::get('products')
 	]);
 });
 
