@@ -23,8 +23,8 @@ export type PageProps<T extends Record<string, unknown> = Record<string, unknown
 	};
 };
 
-
 export interface GlobalProps extends PageProps {
+	cart: any,
 	flash: {
 		message: string | null
 	}

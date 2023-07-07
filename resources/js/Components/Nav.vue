@@ -1,11 +1,16 @@
 <script setup lang="ts">
-import { Link } from '@inertiajs/vue3';
+import { Link, usePage } from '@inertiajs/vue3';
 import Input from './Input/Input.vue';
 import { reactive } from 'vue';
 import CartIcon from '../../assets/icons/Shopping cart.svg';
 import MessageIcon from '../../assets/icons/InboxOutline.svg';
 import UserIcon from '../../assets/icons/UserOutline.svg';
-import { store } from "@/store";
+import { GlobalProps } from '@/types';
+import { toRaw } from 'vue';
+import { computed } from 'vue';
+
+const page = usePage<GlobalProps>();
+const cartLength = computed(() => Object.keys(page.props.cart).length);
 
 const state = reactive<{ searchQuery: string }>({
 	searchQuery: ''
@@ -32,7 +37,8 @@ const onSearchChange = (searchQuery: string) => {
 		<div class="flex items-center gap-6 align-middle">
 			<Link href="/cart">
 			<div class="relative">
-				<p class="absolute p-1 px-2 text-[9px] text-white bg-red-400 rounded-full -top-3 -right-2">{{ store.cart.length }}</p>
+				<p class="absolute p-1 px-2 text-[9px] text-white bg-red-400 rounded-full -top-3 -right-2">{{
+					cartLength }}</p>
 				<img class="cursor-pointer" :src="CartIcon" alt="see cart item" />
 			</div>
 			</Link>
