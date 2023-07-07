@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CheckIcon } from "@heroicons/vue/24/solid";
+import { CheckIcon, CheckBadgeIcon } from "@heroicons/vue/24/solid";
 import { ref } from "vue";
 
 defineProps({
@@ -13,8 +13,8 @@ setTimeout(() => {
 
 </script>
 <template>
-	<div v-if="showAlert" @click="showAlert = !showAlert" class="flex p-4 my-4 font-medium rounded-md text-emerald-100 bg-emerald-600 text-md">
-		<CheckIcon class="w-6 h-6 mr-4" />
+	<div v-if="showAlert" @click="showAlert = !showAlert" class="flex px-8 py-4 my-4 font-medium text-white rounded-md bg-emerald-500 text-md">
+		<CheckBadgeIcon class="w-6 h-6 mr-4" />
 		<p>{{ message }}</p>
 		<slot />
 	</div>

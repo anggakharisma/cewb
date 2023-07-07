@@ -32,7 +32,7 @@ const onSearchChange = (searchQuery: string) => {
 		<div class="flex items-center gap-6 align-middle">
 			<Link href="/cart">
 			<div class="relative">
-				<p class="absolute p-1 text-xs bg-yellow-300 rounded-full -top-3 -right-2">{{  store.cart.length }}</p>
+				<p class="absolute p-1 px-2 text-[9px] text-white bg-red-400 rounded-full -top-3 -right-2">{{ store.cart.length }}</p>
 				<img class="cursor-pointer" :src="CartIcon" alt="see cart item" />
 			</div>
 			</Link>
