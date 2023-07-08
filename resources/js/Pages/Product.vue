@@ -25,7 +25,9 @@ const addToCart = async (product: Product) => {
 	await store.cart.push(product);
 	await formProduct.toastCount++;
 	router.post("/cart", formProduct.product);
+	setTimeout(() => {
 	isAdding.value = false;
+	}, 200);
 }
 
 </script>
@@ -36,9 +38,9 @@ const addToCart = async (product: Product) => {
 	<GuestLayout>
 		<div class="fixed z-40 -translate-x-1/2 top-10 left-1/2 bg-red">
 			<Alert v-for="count in formProduct.toastCount" :message="page.props.flash.message"
-				v-if="page.props.flash.message" />
+				v-show="page.props.flash.message" />
 		</div>
-		<div class="relative flex items-center justify-center w-5/6 gap-20 m-auto mt-8 mb-40 align-middle bg-white">
+		<div class="relative flex items-center justify-center w-5/6 gap-20 p-10 m-auto mt-8 mb-40 align-middle bg-white">
 			<ImageDetail :src="product.image_path" :description="product.name" />
 			<DetailDescription :is-adding="isAdding" :add-to-cart="addToCart" :product="product" />
 		</div>

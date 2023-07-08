@@ -34,10 +34,10 @@ const shuffledProducts = computed(() => {
 			</div>
 			<div class="w-full my-8">
 				<h1 class="my-8 text-xl font-semibold text-gray-700">FEATURED PRODUCTS</h1>
-				<div class="grid grid-cols-2 gap-8 align-middle">
-					<div class="relative h-[76vh]">
+				<div class="flex justify-between">
+					<div class="relative w-full bg-red-500 h-800">
 						<Link :href="`/products/${products[3].id}`">
-						<img class="object-cover w-full h-full" :src="products[3].image_path" :alt="products[3].name" />
+						<img class="object-cover w-full h-full aspect-video" :src="products[3].image_path" :alt="products[3].name" />
 
 						<div class="absolute bottom-0 flex justify-between w-full p-2 bg-white bg-opacity-70">
 							<p class="text-sm">$ {{ products[3].price }}</p>
@@ -45,8 +45,8 @@ const shuffledProducts = computed(() => {
 						</div>
 						</Link>
 					</div>
-					<div class="grid justify-between h-full grid-cols-3 gap-8">
-						<ProductCard :is-big="false" v-for="product in products.slice(0, 6)" :product="product" />
+					<div class="grid justify-between h-full grid-cols-3">
+						<ProductCard :is-big="false" v-for="product in products.slice(0, 3)" :product="product" />
 					</div>
 					<br />
 				</div>

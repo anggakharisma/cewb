@@ -12,9 +12,15 @@ export interface Product {
 	image_path: string;
 }
 
+interface Attribute {
+	imagePath: string;
+}
+
 export interface CartItemType {
 	name: string;
 	quantity: number;
+	price: number;
+	attributes: Attribute
 }
 
 export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {

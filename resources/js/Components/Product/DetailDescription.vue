@@ -23,7 +23,7 @@ defineProps<{
 		</div>
 
 		<div class="self-start mt-16">
-			<Button :disabled="isAdding" :size="ButtonSize.MEDIUM" type="submit" :variant="Variant.PRIMARY"
+			<Button :disabled="isAdding ? true : false" :size="ButtonSize.MEDIUM" type="submit" :variant="Variant.PRIMARY"
 				@click="addToCart(product)">
 				Add To Cart
 			</Button>

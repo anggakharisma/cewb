@@ -7,9 +7,9 @@ defineProps<{
 </script>
 
 <template>
-	<div class="relative h-full overflow-hidden max-h-96">
+	<div class="relative w-full h-full overflow-hidden">
 		<Link :href="`/products/${product.id}`">
-		<img class="object-cover w-80 h-80 aspect-auto" :src="product.image_path" :alt="product.name" />
+		<img class="object-cover w-80 h-60 aspect-video" :src="product.image_path" :alt="product.name" />
 
 		<div class="absolute bottom-0 flex justify-between w-full p-2 bg-white bg-opacity-70">
 			<p class="text-sm">$ {{ product.price }}</p>

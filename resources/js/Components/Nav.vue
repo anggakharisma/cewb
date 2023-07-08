@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { Link, usePage } from '@inertiajs/vue3';
-import Input from './Input/Input.vue';
-import { reactive } from 'vue';
-import CartIcon from '../../assets/icons/Shopping cart.svg';
-import MessageIcon from '../../assets/icons/InboxOutline.svg';
-import UserIcon from '../../assets/icons/UserOutline.svg';
 import { GlobalProps } from '@/types';
-import { toRaw } from 'vue';
-import { computed } from 'vue';
+import { Link, usePage } from '@inertiajs/vue3';
+import { computed, reactive } from 'vue';
+import MessageIcon from '../../assets/icons/InboxOutline.svg';
+import CartIcon from '../../assets/icons/Shopping cart.svg';
+import UserIcon from '../../assets/icons/UserOutline.svg';
+import Input from './Input/Input.vue';
 
 const page = usePage<GlobalProps>();
 const cartLength = computed(() => Object.keys(page.props.cart).length);
