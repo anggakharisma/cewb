@@ -8,15 +8,14 @@ const { cartItems } = defineProps<{
 	cartItems: CartItemType[]
 }>();
 
-const reversedCartItes = Object.entries(toRaw(cartItems)).map(e => e[1]).reverse();
-
+//const reversedCartItes = Object.entries(toRaw(cartItems)).map(e => e[1]);
 </script>
 
 <template>
 	<GuestLayout>
 		<div class="w-4/6 p-16 m-auto bg-white rounded-md shadow-sm">
 			<h2 class="mb-8 text-3xl font-semibold">Shopping Cart</h2>
-			<CartItem v-for="cartItem in reversedCartItes" :cart-item="cartItem" />
+			<CartItem v-for="cartItem in cartItems" :cart-item="cartItem" />
 		</div>
 	</GuestLayout>
 </template>
