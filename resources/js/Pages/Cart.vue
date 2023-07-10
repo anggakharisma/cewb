@@ -2,7 +2,6 @@
 import CartItem from '@/Components/CartItem/CartItem.vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import { CartItemType } from '@/types';
-import { toRaw } from 'vue';
 
 const { cartItems } = defineProps<{
 	cartItems: CartItemType[]

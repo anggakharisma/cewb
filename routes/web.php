@@ -19,20 +19,19 @@ Route::get('/', function () {
 	]);
 });
 
-
-Route::get('/products/{product}', [ProductController::class, 'show']);
-
 Route::get('/dashboard', function () {
 	return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+// Product routes
+Route::get('/products/{product}', [ProductController::class, 'show']);
+
+// Cart routes
 Route::post('/cart', [CartController::class, "addItemToCart"]);
 Route::get('/cart', [CartController::class, 'index']);
 
-
-
-
-
+// Auth routes
 Route::middleware('auth')->group(function () {
 	Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 	Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -2,7 +2,7 @@
 
 import { CartItemType } from '@/types';
 
-const props = defineProps<{
+defineProps<{
 	cartItem: CartItemType
 }>();
 

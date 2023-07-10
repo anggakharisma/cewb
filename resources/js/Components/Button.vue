@@ -16,6 +16,7 @@ defineProps<ButtonProps>();
 		'text-sm': size === ButtonSize.SMALL,
 		'text-md': size === ButtonSize.MEDIUM,
 		'text-xl': size === ButtonSize.LARGE,
+
 		'bg-blue-800 hover:bg-blue-900': variant === Variant.PRIMARY,
 		'bg-yellow-800 hover:bg-yellow-600': variant === Variant.WARNING,
 		'bg-red-800': variant === Variant.DANGER,
