@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps<{
+defineProps<{
 	type: "text" | "password"
 	variant: "main" | "error"
 	name: string,
@@ -7,7 +7,6 @@ const props = defineProps<{
 	value: string;
 }>();
 
-console.log(props.value);
 
 const emit = defineEmits<{
 	(e: "update:value", value: HTMLInputElement["value"]): HTMLInputElement["value"];

@@ -27,6 +27,7 @@ class ProductFactory extends Factory
         return [
 					'name' => fake()->name(),
 					'price' => fake()->numberBetween(100, 2000),
+					'description' => fake()->text(),
 					'image_path' => $path . "/" . $images[array_rand($images)]
         ];
     }
