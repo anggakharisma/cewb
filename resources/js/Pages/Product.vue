@@ -36,7 +36,7 @@ const addToCart = async (product: Product) => {
 		<title>{{ product.name }}</title>
 	</Head>
 	<GuestLayout>
-		<div class="fixed z-40 -translate-x-1/2 top-10 left-1/2 bg-red">
+		<div class="fixed z-40 -translate-x-1/2 top-10 left-1/2">
 			<Alert v-for="count in formProduct.toastCount" :message="page.props.flash.message"
 				v-show="page.props.flash.message" />
 		</div>
