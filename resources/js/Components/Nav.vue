@@ -15,7 +15,7 @@ const state = reactive<{ searchQuery: string }>({
 });
 
 const onSearchChange = (searchQuery: string) => {
-	searchQuery = searchQuery;
+	state.searchQuery = searchQuery;
 }
 </script>
 
@@ -25,10 +25,13 @@ const onSearchChange = (searchQuery: string) => {
 		<h1 class="text-2xl font-bold text-blue-800">CEWB</h1>
 		</Link>
 		<form class="relative flex-1 w-full" @submit.prevent>
+			<div v-if="state.searchQuery !== ''" class="absolute z-40 w-full px-10 py-2 bg-white border-[1px] border-gray-300 border-solid rounded-full top-12">
+				<p class="font-light text-gray-600 text-md text-400"> searching for: {{ state.searchQuery }}</p>
+			</div>
 			<div class="flex items-center justify-between w-full gap-2 align-middle">
 				<button type="submit" class="absolute lg:left-[1.5%] left-[5%] text-gray-500 cursor-pointer">O</button>
-				<Input :change="onSearchChange" :value="state.searchQuery" type="text" variant="main" name="search"
-					placeholder="Search for a product" />
+				<Input @update:value="onSearchChange" :change="onSearchChange" :value="state.searchQuery" type="text"
+					variant="main" name="search" placeholder="Search for a product" />
 			</div>
 		</form>
 
